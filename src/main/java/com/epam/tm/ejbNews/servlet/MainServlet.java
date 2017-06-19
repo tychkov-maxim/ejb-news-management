@@ -22,11 +22,7 @@ public class MainServlet extends HttpServlet {
     @Override
     protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         List<News> listOfNews = newsLocalService.getAllNewsByDate();
-
-        PrintWriter writer = resp.getWriter();
-        for (News news : listOfNews) {
-            writer.write(news.getTitle());
-        }
-        writer.close();
+        req.setAttribute("list", listOfNews);
+        req.getRequestDispatcher("/WEB-INF/jsp/listOfNews.jsp").forward(req,resp);
     }
 }
