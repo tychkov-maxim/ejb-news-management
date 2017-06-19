@@ -14,8 +14,4 @@ public abstract class EntityManagerDao<T extends BaseEntity> implements Dao<T> {
         entityManager.persist(entity);
         return entity;
     }
-
-    public void remove(T entity) {
-        entityManager.remove(entity);
-    }
 }

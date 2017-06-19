@@ -18,4 +18,12 @@ public class EntityManagerNewsDao extends EntityManagerDao<News> implements News
     public News fetchById(long id) {
         return entityManager.find(News.class, id);
     }
+
+    @Override
+    public void remove(News entity) {
+        News news = fetchById(entity.getId());
+        entityManager.remove(news);
+    }
+
+
 }
