@@ -1,8 +1,7 @@
 package com.epam.tm.ejbNews.servlet;
 
-import com.epam.tm.ejbNews.dao.EntityManagerNewsDao;
-import com.epam.tm.ejbNews.dao.NewsDao;
 import com.epam.tm.ejbNews.entity.News;
+import com.epam.tm.ejbNews.service.NewsLocalService;
 
 import javax.ejb.EJB;
 import javax.servlet.ServletException;
@@ -18,11 +17,11 @@ import java.util.List;
 public class MainServlet extends HttpServlet {
 
     @EJB
-    private NewsDao newsDao;
+    private NewsLocalService newsLocalService;
 
     @Override
     protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        List<News> listOfNews = newsDao.getAllNewsOrderByDate();
+        List<News> listOfNews = newsLocalService.getAllNewsByDate();
 
         PrintWriter writer = resp.getWriter();
         for (News news : listOfNews) {
