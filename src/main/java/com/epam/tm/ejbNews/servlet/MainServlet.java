@@ -22,6 +22,6 @@ public class MainServlet extends HttpServlet {
     protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         List<News> listOfNews = newsLocalService.getAllNewsByDate();
         req.setAttribute("list", listOfNews);
-        req.getRequestDispatcher("/WEB-INF/jsp/listOfNews.jsp").forward(req,resp)1;
+        req.getRequestDispatcher("/WEB-INF/jsp/listOfNews.jsp").forward(req,resp);
     }
 }
