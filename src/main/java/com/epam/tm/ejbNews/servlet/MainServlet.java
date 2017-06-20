@@ -10,7 +10,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.util.List;
 
 @WebServlet(value = "*.do")
@@ -23,6 +22,6 @@ public class MainServlet extends HttpServlet {
     protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         List<News> listOfNews = newsLocalService.getAllNewsByDate();
         req.setAttribute("list", listOfNews);
-        req.getRequestDispatcher("/WEB-INF/jsp/listOfNews.jsp").forward(req,resp);
+        req.getRequestDispatcher("/WEB-INF/jsp/listOfNews.jsp").forward(req,resp)1;
     }
 }
